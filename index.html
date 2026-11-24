@@ -2,55 +2,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Squishlish's Unblocked Games</title>
-    <style>
-        body {
-            background: #151525;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Squishlish's Unblocked Games</title>
 
-        header {
-            background: #242440;
-            padding: 30px;
-        }
+<style>
+* {
+    box-sizing: border-box;
+}
 
-        h1 {
-            color: #a78bfa;
-        }
+body {
+    margin: 0;
+    background: #111126;
+    color: white;
+    font-family: Arial, sans-serif;
+}
 
-        main {
-            padding: 40px 20px;
-        }
+header {
+    background: #1c1b35;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #34314e;
+}
 
-        .game {
-            background: #242440;
-            padding: 20px;
-            margin: 15px auto;
-            max-width: 400px;
-            border-radius: 12px;
-        }
-    </style>
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    color: #a78bfa;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav a:hover {
+    color: #a78bfa;
+}
+
+.hero {
+    text-align: center;
+    padding: 85px 20px;
+    background: linear-gradient(135deg, #242047, #111126);
+}
+
+.hero h1 {
+    font-size: clamp(32px, 6vw, 55px);
+    margin-bottom: 15px;
+}
+
+.hero span {
+    color: #a78bfa;
+}
+
+.hero p {
+    color: #c5c2d8;
+    font-size: 17px;
+}
+
+.btn {
+    display: inline-block;
+    background: #7954db;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 18px;
+}
+
+.btn:hover {
+    background: #9273ed;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 45px 20px;
+}
+
+h2 {
+    color: #c4b5fd;
+}
+
+.search {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0 25px;
+    background: #242440;
+    border: 1px solid #45415e;
+    border-radius: 9px;
+    color: white;
+    font-size: 16px;
+}
+
+.games {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
+}
+
+.game {
+    background: #242440;
+    border: 1px solid #383653;
+    border-radius: 12px;
+    padding: 25px;
+    transition: 0.2s;
+}
+
+.game:hover {
+    transform: translateY(-4px);
+    border-color: #9273ed;
+}
+
+.game-icon {
+    font-size: 40px;
+}
+
+.game h3 {
+    margin-bottom: 8px;
+}
+
+.game p {
+    color: #aaa8bf;
+    font-size: 14px;
+}
+
+.category {
+    display: inline-block;
+    color: #c4b5fd;
+    background: #39305d;
+    padding: 5px 9px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+footer {
+    text-align: center;
+    background: #1c1b35;
+    padding: 25px;
+    color: #aaa8bf;
+    margin-top: 40px;
+    font-size: 13px;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <h1>Squishlish's Unblocked Games</h1>
-    <p>Your place for browser games!</p>
+    <div class="logo">🎮 SQUISHLISH</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#games">Games</a>
+        <a href="#categories">Categories</a>
+    </nav>
 </header>
 
-<main>
-    <h2>🎮 Game Library</h2>
+<section class="hero" id="home">
+    <h1>PLAY MORE.<br><span>WORRY LESS.</span></h1>
+    <p>Welcome to Squishlish's Unblocked Games!</p>
+    <p>Your next favourite game is waiting.</p>
+    <a href="#games" class="btn">Explore Games ↓</a>
+</section>
 
-    <div class="game">
-        <h3>Coming Soon!</h3>
-        <p>Our games are being added.</p>
-    </div>
+<main>
+
+    <section id="games">
+        <h2>🎮 Game Library</h2>
+        <p>Find your next adventure.</p>
+
+        <input
+            class="search"
+            id="search"
+            type="text"
+            placeholder="Search games..."
+            aria-label="Search games"
+        >
+
+        <div class="games" id="gameList">
+
+            <div class="game">
+                <div class="game-icon">🕹️</div>
+                <h3>Coming Soon</h3>
+                <span class="category">Arcade</span>
+                <p>More games are on their way!</p>
+            </div>
+
+            <div class="game">
+                <div class="game-icon">🏎️</div>
+                <h3>Coming Soon</h3>
+                <span class="category">Racing</span>
+                <p>Get ready to hit the road.</p>
+            </div>
+
+            <div class="game">
+                <div class="game-icon">🧩</div>
+                <h3>Coming Soon</h3>
+                <span class="category">Puzzle</span>
+                <p>Put your brain to the test.</p>
+            </div>
+
+            <div class="game">
+                <div class="game-icon">👥</div>
+                <h3>Coming Soon</h3>
+                <span class="category">Multiplayer</span>
+                <p>Play together with friends.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="categories">
+        <h2>📁 Categories</h2>
+        <p>Arcade · Racing · Puzzle · Multiplayer · Action</p>
+    </section>
+
 </main>
+
+<footer>
+    <p>© 2026 Squishlish's Unblocked Games</p>
+    <p>Made for fun. Play responsibly.</p>
+</footer>
+
+<script>
+const search = document.getElementById("search");
+const games = document.querySelectorAll(".game");
+
+search.addEventListener("input", () => {
+    const query = search.value.toLowerCase();
+
+    games.forEach(game => {
+        game.style.display =
+            game.textContent.toLowerCase().includes(query)
+            ? ""
+            : "none";
+    });
+});
+</script>
 
 </body>
 </html>
