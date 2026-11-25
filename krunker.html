@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krunker.IO | Squishlish's Unblocked Games</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #111126;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #1c1b35;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #34314e;
+        }
+
+        .logo {
+            color: #a78bfa;
+            font-size: 21px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .game-controls {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 12px;
+        }
+
+        .fullscreen-btn {
+            background: #7954db;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .fullscreen-btn:hover {
+            background: #9273ed;
+        }
+
+        .game-window {
+            width: 100%;
+            background: black;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .game-iframe {
+            display: block;
+            width: 100%;
+            height: 650px;
+            border: none;
+            background: black;
+        }
+
+        .game-info {
+            margin-top: 25px;
+            background: #201f38;
+            padding: 22px;
+            border-radius: 12px;
+        }
+
+        .game-info h2 {
+            color: #c4b5fd;
+            margin-top: 0;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+
+            .game-iframe {
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">🎮 SQUISHLISH</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="library.html">Games</a>
+        <a href="action.html">Action Games</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <h1>Game Title</h1>
+
+    <div class="game-controls">
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">
+            ⛶ Fullscreen
+        </button>
+    </div>
+
+    <div class="game-window" id="gameWindow">
+
+      <iframe src="https://w8.snokido.com/embed/krunkerio" id="embed" 
+        allow="autoplay" 
+        scrolling="no" 
+        allowfullscreen>
+      </iframe>
+
+    </div>
+
+    <div class="game-info">
+        <h2>About the Game</h2>
+        <p>
+            Ready to face other real players in this fast-paced online gun game? Prepare your arsenal and reload your guns, get ready to jump in!
+        </p>
+    </div>
+
+</div>
+
+<script>
+function toggleFullscreen() {
+    const game = document.getElementById("gameWindow");
+
+    if (!document.fullscreenElement) {
+        game.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+}
+</script>
+
+</body>
+</html>
