@@ -1,10 +1,140 @@
-<iframe
-    id="gameframe"
-    src="https://games.arcadrome.com/level-devil/5/index.html"
-    title="Level Devil"
-    width="100%"
-    height="600"
-    allow="autoplay; fullscreen; gamepad"
-    allowfullscreen
-    scrolling="no">
-</iframe>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level Devil | Squishlish</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #111126;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #191932;
+            border-bottom: 1px solid #383653;
+        }
+
+        .logo {
+            color: #a78bfa;
+            font-size: 21px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .game-window {
+            width: 100%;
+            background: #000;
+            border: 1px solid #383653;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .game-window iframe {
+            display: block;
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+
+        .game-info {
+            margin-top: 30px;
+        }
+
+        .game-info h1 {
+            color: #a78bfa;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .game-info p {
+            color: #c5c5d8;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px 20px;
+            }
+
+            .game-window iframe {
+                height: 400px;
+            }
+
+            .game-info h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo">🎮 SQUISHLISH</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="library.html">Games</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <div class="game-window">
+            <iframe
+                id="gameframe"
+                src="https://games.arcadrome.com/level-devil/5/index.html"
+                title="Level Devil"
+                allow="autoplay; fullscreen; gamepad"
+                allowfullscreen
+                scrolling="no">
+            </iframe>
+        </div>
+
+        <section class="game-info">
+            <h1>Level Devil</h1>
+            <p>
+                Think you can reach the exit? Think again!
+                Level Devil is a tricky platform game full of
+                unexpected traps, surprises and challenges.
+                Watch your step, avoid the obstacles and make
+                your way to the finish!
+            </p>
+        </section>
+
+    </main>
+
+</body>
+</html>
