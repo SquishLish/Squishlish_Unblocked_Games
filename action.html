@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Games | Squishlish's Unblocked Games</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111126;
+            color: white;
+        }
+
+        header {
+            background: #1b1b35;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 270px);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .game-card {
+            display: block;
+            width: 240px;
+            padding: 15px;
+            background: #201f38;
+            border-radius: 14px;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .game-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .game-card h2 {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .game-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+
+            .game-card {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">Squishlish</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="library.html">Game Library</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <h1>🎯 Action Games</h1>
+    <p>Jump into the action with fast-paced games and exciting challenges!</p>
+
+    <div class="game-grid">
+
+        <a href="krunker.html" class="game-card">
+            <img src="images/krunker.png" alt="Krunker.io game thumbnail">
+            <h2>Krunker.io</h2>
+            <p>Jump into fast-paced multiplayer FPS battles and test your skills!</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
