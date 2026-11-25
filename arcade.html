@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Games | Squishlish's Unblocked Games</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #111126;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #1c1b35;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #34314e;
+        }
+
+        .logo {
+            color: #a78bfa;
+            font-size: 21px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 35px 20px;
+        }
+
+        h1 {
+            color: #c4b5fd;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 270px);
+            gap: 25px;
+        }
+
+        .game-card {
+            display: block;
+            width: 240px;
+            padding: 15px;
+            background: #201f38;
+            border-radius: 14px;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .game-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .game-card h2 {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+
+            .game-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+
+            .game-card {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">🎮 SQUISHLISH</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="library.html">Games</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <h1>🕹️ Arcade Games</h1>
+    <p>Play quick, fun games and try to beat your high scores!</p>
+
+    <div class="game-grid">
+
+        <a href="slope.html" class="game-card">
+            <img src="images/slope.png" alt="Slope game thumbnail">
+            <h2>Slope</h2>
+            <p>Roll through a neon 3D course, dodge obstacles and see how far you can go!</p>
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
