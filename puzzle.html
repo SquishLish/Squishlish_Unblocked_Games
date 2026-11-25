@@ -31,12 +31,13 @@
 
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: repeat(auto-fill, 270px);
             gap: 25px;
         }
 
         .game-card {
             display: block;
+            width: 240px;
             padding: 15px;
             background: #201f38;
             border-radius: 14px;
@@ -56,6 +57,16 @@
 
         .game-card h2 {
             margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .game-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+
+            .game-card {
+                width: auto;
+            }
         }
     </style>
 </head>
