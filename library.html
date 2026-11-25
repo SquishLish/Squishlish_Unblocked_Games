@@ -34,7 +34,6 @@ header {
     cursor: pointer;
     display: inline-block;
 }
-}
 
 nav a {
     color: white;
@@ -91,6 +90,13 @@ main {
     padding: 10px 17px;
     border-radius: 20px;
     cursor: pointer;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+}
+
+.category-link {
+    text-decoration: none;
+    display: inline-block;
 }
 
 .category-btn:hover,
@@ -214,12 +220,31 @@ footer {
 >
 
 <div class="categories">
-    <button class="category-btn active" data-category="All">All Games</button>
-    <button class="category-btn" data-category="Arcade">Arcade</button>
-    <button class="category-btn" data-category="Racing">Racing</button>
-    <button class="category-btn" data-category="Puzzle">Puzzle</button>
-    <button class="category-btn" data-category="Action">Action</button>
-    <button class="category-btn" data-category="Multiplayer">Multiplayer</button>
+
+    <button class="category-btn active" data-category="All">
+        All Games
+    </button>
+
+    <button class="category-btn" data-category="Arcade">
+        Arcade
+    </button>
+
+    <a href="racing.html" class="category-btn category-link">
+        Racing
+    </a>
+
+    <a href="puzzle.html" class="category-btn category-link">
+        Puzzle
+    </a>
+
+    <button class="category-btn" data-category="Action">
+        Action
+    </button>
+
+    <button class="category-btn" data-category="Multiplayer">
+        Multiplayer
+    </button>
+
 </div>
 
 <div class="games" id="gameList">
@@ -285,7 +310,7 @@ footer {
 
 <script>
 const search = document.getElementById("search");
-const buttons = document.querySelectorAll(".category-btn");
+const buttons = document.querySelectorAll("button.category-btn");
 const games = document.querySelectorAll(".game");
 const empty = document.getElementById("empty");
 
