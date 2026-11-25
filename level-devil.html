@@ -97,6 +97,7 @@
             }
         }
     </style>
+    
 </head>
 
 <body>
@@ -139,6 +140,16 @@
         </section>
 
     </main>
+     <script>
+        function toggleFullscreen() {
+            const game = document.getElementById("gameWindow");
 
+            if (!document.fullscreenElement) {
+                game.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    </script>
 </body>
 </html>
