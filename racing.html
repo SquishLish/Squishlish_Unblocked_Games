@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racing Games | Squishlish</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #0f1020;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            padding: 20px 5%;
+            background: #19182e;
+        }
+
+        header a {
+            color: #a78bfa;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        main {
+            padding: 40px 5%;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 270px);
+            gap: 25px;
+        }
+
+        .game-card {
+            display: block;
+            width: 240px;
+            padding: 15px;
+            background: #201f38;
+            border-radius: 14px;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .game-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .game-card h2 {
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 600px) {
+            .game-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+
+            .game-card {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html">🎮 SQUISHLISH</a>
+    </header>
+
+    <main>
+        <h1>🏎️ Racing Games</h1>
+        <p>Start your engines and get ready to race!</p>
+
+        <div class="game-grid">
+
+            <a href="moto-x3m.html" class="game-card">
+                <img src="images/moto-x3m.png"
+                     alt="Moto X3M game thumbnail">
+
+                <h2>Moto X3M</h2>
+                <p>Race through challenging obstacle courses, perform stunts and beat the clock!</p>
+            </a>
+
+        </div>
+    </main>
+
+</body>
+</html>
