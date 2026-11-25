@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moto X3M | Squishlish</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #111126;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #191932;
+            border-bottom: 1px solid #383653;
+        }
+
+        .logo {
+            color: #a78bfa;
+            font-size: 21px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #a78bfa;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .game-controls {
+            margin-bottom: 12px;
+        }
+
+        .game-controls button {
+            background: #a78bfa;
+            color: #111126;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 7px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .game-controls button:hover {
+            background: #c4b5fd;
+        }
+
+        .game-window {
+            width: 100%;
+            background: #000;
+            border: 1px solid #383653;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .game-window iframe {
+            display: block;
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+
+        .game-info {
+            margin-top: 30px;
+        }
+
+        .game-info h1 {
+            color: #a78bfa;
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .game-info p {
+            color: #c5c5d8;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 18px 20px;
+            }
+
+            .game-window iframe {
+                height: 400px;
+            }
+
+            .game-info h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo">🎮 SQUISHLISH</a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="library.html">Games</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <div class="game-controls">
+            <button onclick="toggleFullscreen()">
+                ⛶ Fullscreen
+            </button>
+        </div>
+
+        <div class="game-window" id="gameWindow">
+
+            <iframe
+                id="gameframe"
+                src="https://5dd264d4-015f-11ea-ad56-9cb6d0d995f7.gdn.poki.com/55d9475f-c88a-4900-b4e6-886cdd3c425e/index.html?country=NL&ccpaApplies=0&url_referrer=https%3A%2F%2Fpoki.com%2F&site_id=3&iso_lang=en&poki_url=https%3A%2F%2Fpoki.com%2Fen%2Fg%2Fmoto-x3m&hoist=yes&nonPersonalized=y&cloudsavegames=n&familyFriendly=y&device=desktop&categories=1%2C3%2C9%2C51%2C738%2C929%2C1193&special_condition=landing&domain=poki.com&game_id=5dd264d4-015f-11ea-ad56-9cb6d0d995f7&game_version_id=55d9475f-c88a-4900-b4e6-886cdd3c425e&inspector=0&csp=1"
+                title="Moto X3M"
+                allow="autoplay; fullscreen; gamepad"
+                allowfullscreen
+                scrolling="no">
+            </iframe>
+
+        </div>
+
+        <section class="game-info">
+
+            <h1>Moto X3M</h1>
+
+            <p>
+                Get ready for an adrenaline-filled motorcycle adventure!
+                Race through challenging obstacle courses, perform
+                incredible flips and stunts, avoid dangerous obstacles
+                and try to beat the clock. Can you complete all 50 levels
+                and earn three stars on every track?
+            </p>
+
+        </section>
+
+    </main>
+
+    <script>
+        function toggleFullscreen() {
+            const game = document.getElementById("gameWindow");
+
+            if (!document.fullscreenElement) {
+                game.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    </script>
+
+</body>
+</html>
