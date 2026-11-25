@@ -19,16 +19,21 @@
         }
 
         header {
-            background: #1b1b35;
-            padding: 20px 40px;
+            background: #1c1b35;
+            padding: 18px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid #34314e;
         }
 
         .logo {
-            font-size: 24px;
+            color: #a78bfa;
+            font-size: 21px;
             font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
         }
 
         nav a {
@@ -83,6 +88,16 @@
         }
 
         @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 14px;
+            }
+
             .game-grid {
                 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
             }
@@ -97,11 +112,11 @@
 <body>
 
 <header>
-    <div class="logo">Squishlish</div>
+    <a href="index.html" class="logo">🎮 SQUISHLISH</a>
 
     <nav>
         <a href="index.html">Home</a>
-        <a href="library.html">Game Library</a>
+        <a href="library.html">Games</a>
     </nav>
 </header>
 
