@@ -29,9 +29,14 @@
             padding: 40px 5%;
         }
 
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
         .game-card {
             display: block;
-            width: 240px;
             padding: 15px;
             background: #201f38;
             border-radius: 14px;
@@ -65,13 +70,26 @@
     <h1>🧩 Puzzle Games</h1>
     <p>Explore our collection of puzzle games!</p>
 
-    <a href="level-devil.html" class="game-card">
-        <img src="images/level-devil.png"
-             alt="Level Devil game thumbnail">
+    <div class="game-grid">
 
-        <h2>Level Devil</h2>
-        <p>A tricky platform game full of surprises!</p>
-    </a>
+        <a href="level-devil.html" class="game-card">
+            <img src="images/level-devil.png"
+                 alt="Level Devil game thumbnail">
+
+            <h2>Level Devil</h2>
+            <p>A tricky platform game full of surprises!</p>
+        </a>
+
+        <a href="fireboy-watergirl.html" class="game-card">
+            <img src="images/fireboy-watergirl.png"
+                 alt="Fireboy and Watergirl game thumbnail">
+
+            <h2>Fireboy and Watergirl</h2>
+            <p>Work together to solve puzzles and escape the Forest Temple!</p>
+        </a>
+
+    </div>
+
 </main>
 
 </body>
