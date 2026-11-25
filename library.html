@@ -8,7 +8,9 @@
 <title>Game Library | Squishlish's Unblocked Games</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
     margin: 0;
@@ -41,7 +43,9 @@ nav a {
     margin-left: 20px;
 }
 
-nav a:hover { color: #a78bfa; }
+nav a:hover {
+    color: #a78bfa;
+}
 
 main {
     max-width: 1100px;
@@ -61,9 +65,13 @@ main {
     margin-top: 0;
 }
 
-.intro span { color: #a78bfa; }
+.intro span {
+    color: #a78bfa;
+}
 
-.intro p { color: #c5c2d8; }
+.intro p {
+    color: #c5c2d8;
+}
 
 .search {
     width: 100%;
@@ -95,8 +103,8 @@ main {
 }
 
 .category-link {
-    text-decoration: none;
     display: inline-block;
+    text-decoration: none;
 }
 
 .category-btn:hover,
@@ -112,11 +120,14 @@ main {
 }
 
 .game {
+    display: block;
     background: #242440;
     border: 1px solid #383653;
     border-radius: 12px;
     overflow: hidden;
     transition: 0.2s;
+    color: white;
+    text-decoration: none;
 }
 
 .game:hover {
@@ -133,9 +144,13 @@ main {
     font-size: 55px;
 }
 
-.game-info { padding: 18px; }
+.game-info {
+    padding: 18px;
+}
 
-.game-info h3 { margin: 0 0 10px; }
+.game-info h3 {
+    margin: 0 0 10px;
+}
 
 .game-info p {
     color: #aaa8bf;
@@ -163,7 +178,9 @@ main {
     margin-top: 15px;
 }
 
-.play:hover { background: #9273ed; }
+.game:hover .play {
+    background: #9273ed;
+}
 
 .empty {
     display: none;
@@ -186,7 +203,9 @@ footer {
         gap: 15px;
     }
 
-    nav a { margin: 0 8px; }
+    nav a {
+        margin: 0 8px;
+    }
 }
 </style>
 </head>
@@ -195,6 +214,7 @@ footer {
 
 <header>
     <a href="index.html" class="logo">🎮 SQUISHLISH</a>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="library.html">Games</a>
@@ -249,57 +269,71 @@ footer {
 
 <div class="games" id="gameList">
 
-    <!-- GAME 1 -->
+    <!-- GAME 1: ARCADE -->
     <article class="game" data-category="Arcade">
+
         <div class="thumbnail">🕹️</div>
+
         <div class="game-info">
             <h3>Coming Soon</h3>
             <span class="tag">Arcade</span>
             <p>More games are on their way!</p>
-            <a class="play" href="#" aria-disabled="true"
-               onclick="return false">Coming Soon</a>
+
+            <span class="play">Coming Soon</span>
         </div>
+
     </article>
 
-    <!-- GAME 2 -->
-    <article class="game" data-category="Racing">
+    <!-- GAME 2: RACING -->
+    <a href="racing.html" class="game" data-category="Racing">
+
         <div class="thumbnail">🏎️</div>
-        <div class="game-info">
-            <h3>Coming Soon</h3>
-            <span class="tag">Racing</span>
-            <p>Get ready to hit the road.</p>
-            <a class="play" href="#" aria-disabled="true"
-               onclick="return false">Coming Soon</a>
-        </div>
-    </article>
 
-    <!-- GAME 3 -->
-    <article class="game" data-category="Puzzle">
-        <div class="thumbnail">🧩</div>
         <div class="game-info">
-            <h3>Coming Soon</h3>
+            <h3>Racing Games</h3>
+            <span class="tag">Racing</span>
+            <p>Race through tracks, dodge obstacles and chase the fastest times!</p>
+
+            <span class="play">Explore Racing Games</span>
+        </div>
+
+    </a>
+
+    <!-- GAME 3: PUZZLE -->
+    <a href="puzzle.html" class="game" data-category="Puzzle">
+
+        <div class="thumbnail">🧩</div>
+
+        <div class="game-info">
+            <h3>Puzzle Games</h3>
             <span class="tag">Puzzle</span>
             <p>Put your brain to the test.</p>
-            <a class="play" href="#" aria-disabled="true"
-               onclick="return false">Coming Soon</a>
-        </div>
-    </article>
 
-    <!-- GAME 4 -->
+            <span class="play">Explore Puzzle Games</span>
+        </div>
+
+    </a>
+
+    <!-- GAME 4: ACTION -->
     <article class="game" data-category="Action">
+
         <div class="thumbnail">⚔️</div>
+
         <div class="game-info">
             <h3>Coming Soon</h3>
             <span class="tag">Action</span>
             <p>Get ready for some action.</p>
-            <a class="play" href="#" aria-disabled="true"
-               onclick="return false">Coming Soon</a>
+
+            <span class="play">Coming Soon</span>
         </div>
+
     </article>
 
 </div>
 
-<p class="empty" id="empty">No games found. Try another search!</p>
+<p class="empty" id="empty">
+    No games found. Try another search!
+</p>
 
 </main>
 
