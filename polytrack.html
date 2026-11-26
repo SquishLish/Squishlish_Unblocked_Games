@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PolyTrack | Squishlish's Unblocked Games</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #111126;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+    background: #1c1b35;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #34314e;
+}
+
+.logo {
+    color: #a78bfa;
+    font-size: 21px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav a:hover {
+    color: #a78bfa;
+}
+
+/* MAIN */
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 35px 20px;
+}
+
+h1 {
+    color: #c4b5fd;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #aaa8bf;
+    margin-bottom: 20px;
+}
+
+/* GAME WINDOW */
+.game-window {
+    width: 100%;
+    height: 650px;
+    background: #000;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 2px solid #34314e;
+}
+
+.game-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* FULLSCREEN BUTTON */
+.game-controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.fullscreen-btn {
+    background: #7954db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.fullscreen-btn:hover {
+    background: #916ff0;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    background: #1c1b35;
+    padding: 25px;
+    color: #aaa8bf;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+
+    .game-window {
+        height: 500px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">🎮 SQUISHLISH</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="library.html">Games</a>
+        <a href="racing.html">Racing</a>
+    </nav>
+</header>
+
+<main>
+
+    <h1>🏎️ PolyTrack</h1>
+
+    <p class="description">
+        Race across low-poly tracks, master sharp turns and loops, and beat your best times!
+    </p>
+
+    <!-- GAME -->
+    <div class="game-window" id="gameWindow">
+
+        <iframe
+            id="gameFrame"
+            class="game-iframe"
+            src="https://arcadrome.com/embed/polytrack"
+            title="PolyTrack"
+            allow="autoplay; fullscreen; camera; clipboard-write; web-share; accelerometer; gyroscope"
+            allowfullscreen
+            sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-scripts allow-same-origin allow-downloads"
+            loading="eager">
+        </iframe>
+
+    </div>
+
+    <!-- FULLSCREEN -->
+    <div class="game-controls">
+
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">
+            ⛶ Fullscreen
+        </button>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>© 2026 Squishlish's Unblocked Games</p>
+    <p>Made for fun. Play responsibly.</p>
+</footer>
+
+<script>
+function toggleFullscreen() {
+    const gameWindow = document.getElementById("gameWindow");
+
+    if (!document.fullscreenElement) {
+        gameWindow.requestFullscreen().catch(err => {
+            console.log("Fullscreen error:", err);
+        });
+    } else {
+        document.exitFullscreen();
+    }
+}
+</script>
+
+</body>
+</html>
