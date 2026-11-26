@@ -18,12 +18,14 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* HEADER */
 header {
     background: #1c1b35;
     padding: 18px 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
     border-bottom: 1px solid #34314e;
 }
 
@@ -34,18 +36,98 @@ header {
     text-decoration: none;
     cursor: pointer;
     display: inline-block;
+    white-space: nowrap;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 20px;
 }
 
 nav a:hover {
     color: #a78bfa;
 }
 
+/* NAV GAME SEARCH */
+.nav-search-container {
+    position: relative;
+    width: 240px;
+}
+
+.nav-search {
+    width: 100%;
+    padding: 10px 13px;
+    background: #242440;
+    border: 1px solid #45415e;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+}
+
+.nav-search:focus {
+    outline: none;
+    border-color: #a78bfa;
+}
+
+.nav-search-results {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 280px;
+    max-width: 85vw;
+    background: #242440;
+    border: 1px solid #45415e;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 20;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.nav-search-result {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #383653;
+}
+
+.nav-search-result:last-child {
+    border-bottom: none;
+}
+
+.nav-search-result:hover {
+    background: #39305d;
+}
+
+.nav-search-result img {
+    width: 55px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.nav-search-result span {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.no-results {
+    padding: 14px;
+    color: #aaa8bf;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* HERO */
 .hero {
     text-align: center;
     padding: 85px 20px;
@@ -80,6 +162,7 @@ nav a:hover {
     background: #9273ed;
 }
 
+/* MAIN */
 main {
     max-width: 1100px;
     margin: auto;
@@ -90,7 +173,7 @@ h2 {
     color: #c4b5fd;
 }
 
-/* SEARCH BAR */
+/* CATEGORY SEARCH */
 .search-container {
     position: relative;
     width: 100%;
@@ -112,7 +195,6 @@ h2 {
     border-color: #a78bfa;
 }
 
-/* SEARCH RESULTS */
 .search-results {
     display: none;
     position: absolute;
@@ -127,43 +209,7 @@ h2 {
     box-shadow: 0 8px 20px rgba(0,0,0,0.35);
 }
 
-.search-result {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 10px 15px;
-    color: white;
-    text-decoration: none;
-    border-bottom: 1px solid #383653;
-    transition: background 0.2s;
-}
-
-.search-result:last-child {
-    border-bottom: none;
-}
-
-.search-result:hover {
-    background: #39305d;
-}
-
-.search-result img {
-    width: 65px;
-    height: 45px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-
-.search-result span {
-    font-weight: bold;
-}
-
-.no-results {
-    padding: 15px;
-    color: #aaa8bf;
-    text-align: center;
-}
-
-/* GAME CARDS */
+/* CATEGORY CARDS */
 .games {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -208,6 +254,7 @@ h2 {
     font-size: 12px;
 }
 
+/* FOOTER */
 footer {
     text-align: center;
     background: #1c1b35;
@@ -217,14 +264,30 @@ footer {
     font-size: 13px;
 }
 
-@media (max-width: 600px) {
+/* MOBILE */
+@media (max-width: 750px) {
     header {
-        flex-direction: column;
-        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-search-container {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 65px 20px;
     }
 
     nav a {
-        margin: 0 8px;
         font-size: 14px;
     }
 }
@@ -235,9 +298,22 @@ footer {
 
 <header>
     <a href="index.html" class="logo">🎮 SQUISHLISH</a>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="library.html">Games</a>
+
+        <div class="nav-search-container">
+            <input
+                class="nav-search"
+                id="gameSearch"
+                type="text"
+                placeholder="🔍 Search games..."
+                aria-label="Search individual games"
+                autocomplete="off"
+            >
+            <div class="nav-search-results" id="gameSearchResults"></div>
+        </div>
     </nav>
 </header>
 
@@ -250,27 +326,27 @@ footer {
 
 <main>
 
-    <section id="games">
-        <h2>🎮 Game Library</h2>
-        <p>Find your next adventure.</p>
+    <section id="categories">
+        <h2>📁 Categories</h2>
+        <p>Find your favourite type of game.</p>
 
-        <!-- SEARCH BAR -->
+        <!-- CATEGORY SEARCH -->
         <div class="search-container">
 
             <input
                 class="search"
-                id="search"
+                id="categorySearch"
                 type="text"
-                placeholder="🔍 Search games..."
-                aria-label="Search games"
+                placeholder="🔍 Search categories..."
+                aria-label="Search categories"
                 autocomplete="off"
             >
 
-            <div class="search-results" id="searchResults"></div>
+            <div class="search-results" id="categorySearchResults"></div>
 
         </div>
 
-        <div class="games" id="gameList">
+        <div class="games" id="categoryList">
 
             <a href="arcade.html" class="game">
                 <div class="game-icon">🕹️</div>
@@ -303,11 +379,6 @@ footer {
         </div>
     </section>
 
-    <section id="categories">
-        <h2>📁 Categories</h2>
-        <p>Arcade · Racing · Puzzle · Action</p>
-    </section>
-
 </main>
 
 <footer>
@@ -316,62 +387,29 @@ footer {
 </footer>
 
 <script>
-const search = document.getElementById("search");
-const searchResults = document.getElementById("searchResults");
-const games = document.querySelectorAll(".game");
 
-/* INDIVIDUAL GAME SEARCH DATA */
+/* INDIVIDUAL GAME SEARCH */
+const gameSearch = document.getElementById("gameSearch");
+const gameSearchResults = document.getElementById("gameSearchResults");
+
 const gameData = [
-    {
-        name: "Level Devil",
-        image: "images/level-devil.png",
-        link: "level-devil.html"
-    },
-    {
-        name: "Fireboy & Watergirl",
-        image: "images/fireboy-watergirl.png",
-        link: "fireboy-watergirl.html"
-    },
-    {
-        name: "Moto X3M",
-        image: "images/moto-x3m.png",
-        link: "moto-x3m.html"
-    },
-    {
-        name: "Krunker.io",
-        image: "images/krunker.png",
-        link: "krunker.html"
-    },
-    {
-        name: "Slope",
-        image: "images/slope.png",
-        link: "slope.html"
-    },
-    {
-        name: "Stickman Hook",
-        image: "images/stickman-hook.png",
-        link: "stickman-hook.html"
-    },
-    {
-        name: "Flappy Bird",
-        image: "images/flappy-bird.png",
-        link: "flappy-bird.html"
-    },
-    {
-        name: "Crossy Road",
-        image: "images/crossy-road.png",
-        link: "crossy-road.html"
-    }
+    { name: "Level Devil", image: "images/level-devil.png", link: "level-devil.html" },
+    { name: "Fireboy & Watergirl", image: "images/fireboy-watergirl.png", link: "fireboy-watergirl.html" },
+    { name: "Moto X3M", image: "images/moto-x3m.png", link: "moto-x3m.html" },
+    { name: "Krunker.io", image: "images/krunker.png", link: "krunker.html" },
+    { name: "Slope", image: "images/slope.png", link: "slope.html" },
+    { name: "Stickman Hook", image: "images/stickman-hook.png", link: "stickman-hook.html" },
+    { name: "Flappy Bird", image: "images/flappy-bird.png", link: "flappy-bird.html" },
+    { name: "Crossy Road", image: "images/crossy-road.png", link: "crossy-road.html" }
 ];
 
-/* LIVE SEARCH SUGGESTIONS */
-function showSearchResults() {
-    const query = search.value.toLowerCase().trim();
+function showGameSearchResults() {
+    const query = gameSearch.value.toLowerCase().trim();
 
-    searchResults.innerHTML = "";
+    gameSearchResults.innerHTML = "";
 
     if (query === "") {
-        searchResults.style.display = "none";
+        gameSearchResults.style.display = "none";
         return;
     }
 
@@ -380,14 +418,14 @@ function showSearchResults() {
     );
 
     if (matches.length === 0) {
-        searchResults.innerHTML =
+        gameSearchResults.innerHTML =
             '<div class="no-results">No games found.</div>';
     } else {
         matches.forEach(game => {
             const result = document.createElement("a");
 
             result.href = game.link;
-            result.className = "search-result";
+            result.className = "nav-search-result";
 
             const image = document.createElement("img");
             image.src = game.image;
@@ -399,40 +437,45 @@ function showSearchResults() {
             result.appendChild(image);
             result.appendChild(name);
 
-            searchResults.appendChild(result);
+            gameSearchResults.appendChild(result);
         });
     }
 
-    searchResults.style.display = "block";
+    gameSearchResults.style.display = "block";
 }
 
-/* FILTER CATEGORY CARDS */
-search.addEventListener("input", () => {
-    const query = search.value.toLowerCase();
+gameSearch.addEventListener("input", showGameSearchResults);
 
-    showSearchResults();
+gameSearch.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        gameSearchResults.style.display = "none";
+    }
+});
 
-    games.forEach(game => {
-        game.style.display =
-            game.textContent.toLowerCase().includes(query)
+
+/* CATEGORY SEARCH */
+const categorySearch = document.getElementById("categorySearch");
+const categoryCards = document.querySelectorAll("#categoryList .game");
+
+categorySearch.addEventListener("input", () => {
+    const query = categorySearch.value.toLowerCase().trim();
+
+    categoryCards.forEach(card => {
+        card.style.display =
+            card.textContent.toLowerCase().includes(query)
             ? ""
             : "none";
     });
 });
 
-/* CLOSE SUGGESTIONS WHEN CLICKING OUTSIDE */
+
+/* CLOSE GAME SEARCH WHEN CLICKING OUTSIDE */
 document.addEventListener("click", event => {
-    if (!event.target.closest(".search-container")) {
-        searchResults.style.display = "none";
+    if (!event.target.closest(".nav-search-container")) {
+        gameSearchResults.style.display = "none";
     }
 });
 
-/* ESCAPE KEY CLOSES SUGGESTIONS */
-search.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-        searchResults.style.display = "none";
-    }
-});
 </script>
 
 </body>
