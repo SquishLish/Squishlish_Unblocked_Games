@@ -73,6 +73,12 @@ main {
     color: #c5c2d8;
 }
 
+/* SEARCH */
+.search-container {
+    position: relative;
+    width: 100%;
+}
+
 .search {
     width: 100%;
     padding: 15px;
@@ -84,6 +90,63 @@ main {
     font-size: 16px;
 }
 
+.search:focus {
+    outline: none;
+    border-color: #a78bfa;
+}
+
+/* SEARCH RESULTS */
+.search-results {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #242440;
+    border: 1px solid #45415e;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 10;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+.search-result {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #383653;
+    transition: background 0.2s;
+}
+
+.search-result:last-child {
+    border-bottom: none;
+}
+
+.search-result:hover {
+    background: #39305d;
+}
+
+.search-result img {
+    width: 65px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.search-result span {
+    font-weight: bold;
+}
+
+.no-results {
+    padding: 15px;
+    color: #aaa8bf;
+    text-align: center;
+}
+
+/* CATEGORIES */
 .categories {
     display: flex;
     flex-wrap: wrap;
@@ -113,6 +176,7 @@ main {
     border-color: #7954db;
 }
 
+/* GAME CARDS */
 .games {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -231,14 +295,23 @@ footer {
 
 <h2>All Games</h2>
 
-<input
-    class="search"
-    id="search"
-    type="text"
-    placeholder="🔍 Search games..."
-    aria-label="Search games"
->
+<!-- SEARCH BAR -->
+<div class="search-container">
 
+    <input
+        class="search"
+        id="search"
+        type="text"
+        placeholder="🔍 Search games..."
+        aria-label="Search games"
+        autocomplete="off"
+    >
+
+    <div class="search-results" id="searchResults"></div>
+
+</div>
+
+<!-- CATEGORY NAVIGATION -->
 <div class="categories">
 
     <button class="category-btn active" data-category="All">
@@ -267,9 +340,10 @@ footer {
 
 </div>
 
+<!-- CATEGORY CARDS -->
 <div class="games" id="gameList">
 
-    <!-- GAME 1: ARCADE -->
+    <!-- ARCADE -->
     <a href="arcade.html" class="game" data-category="Arcade">
 
         <div class="thumbnail">🕹️</div>
@@ -278,13 +352,12 @@ footer {
             <h3>Arcade Games</h3>
             <span class="tag">Arcade</span>
             <p>Enjoy classic arcade challenges and beat your high scores!</p>
-
             <span class="play">Explore Arcade Games</span>
         </div>
 
     </a>
 
-    <!-- GAME 2: RACING -->
+    <!-- RACING -->
     <a href="racing.html" class="game" data-category="Racing">
 
         <div class="thumbnail">🏎️</div>
@@ -293,13 +366,12 @@ footer {
             <h3>Racing Games</h3>
             <span class="tag">Racing</span>
             <p>Race through tracks, dodge obstacles and chase the fastest times!</p>
-
             <span class="play">Explore Racing Games</span>
         </div>
 
     </a>
 
-    <!-- GAME 3: PUZZLE -->
+    <!-- PUZZLE -->
     <a href="puzzle.html" class="game" data-category="Puzzle">
 
         <div class="thumbnail">🧩</div>
@@ -308,13 +380,12 @@ footer {
             <h3>Puzzle Games</h3>
             <span class="tag">Puzzle</span>
             <p>Put your brain to the test.</p>
-
             <span class="play">Explore Puzzle Games</span>
         </div>
 
     </a>
 
-    <!-- GAME 4: ACTION -->
+    <!-- ACTION -->
     <a href="action.html" class="game" data-category="Action">
 
         <div class="thumbnail">⚔️</div>
@@ -323,7 +394,6 @@ footer {
             <h3>Action Games</h3>
             <span class="tag">Action</span>
             <p>Get ready for some action!</p>
-
             <span class="play">Explore Action Games</span>
         </div>
 
@@ -344,12 +414,100 @@ footer {
 
 <script>
 const search = document.getElementById("search");
+const searchResults = document.getElementById("searchResults");
 const buttons = document.querySelectorAll("button.category-btn");
 const games = document.querySelectorAll(".game");
 const empty = document.getElementById("empty");
 
 let selectedCategory = "All";
 
+/* INDIVIDUAL GAME SEARCH DATA */
+const gameData = [
+    {
+        name: "Level Devil",
+        image: "images/level-devil.png",
+        link: "level-devil.html"
+    },
+    {
+        name: "Fireboy & Watergirl",
+        image: "images/fireboy-watergirl.png",
+        link: "fireboy-watergirl.html"
+    },
+    {
+        name: "Moto X3M",
+        image: "images/moto-x3m.png",
+        link: "moto-x3m.html"
+    },
+    {
+        name: "Krunker.io",
+        image: "images/krunker.png",
+        link: "krunker.html"
+    },
+    {
+        name: "Slope",
+        image: "images/slope.png",
+        link: "slope.html"
+    },
+    {
+        name: "Stickman Hook",
+        image: "images/stickman-hook.png",
+        link: "stickman-hook.html"
+    },
+    {
+        name: "Flappy Bird",
+        image: "images/flappy-bird.png",
+        link: "flappy-bird.html"
+    },
+    {
+        name: "Crossy Road",
+        image: "images/crossy-road.png",
+        link: "crossy-road.html"
+    }
+];
+
+/* LIVE SEARCH SUGGESTIONS */
+function showSearchResults() {
+    const query = search.value.toLowerCase().trim();
+
+    searchResults.innerHTML = "";
+
+    if (query === "") {
+        searchResults.style.display = "none";
+        return;
+    }
+
+    const matches = gameData.filter(game =>
+        game.name.toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+        searchResults.innerHTML =
+            '<div class="no-results">No games found.</div>';
+    } else {
+        matches.forEach(game => {
+            const result = document.createElement("a");
+
+            result.href = game.link;
+            result.className = "search-result";
+
+            const image = document.createElement("img");
+            image.src = game.image;
+            image.alt = "";
+
+            const name = document.createElement("span");
+            name.textContent = game.name;
+
+            result.appendChild(image);
+            result.appendChild(name);
+
+            searchResults.appendChild(result);
+        });
+    }
+
+    searchResults.style.display = "block";
+}
+
+/* CATEGORY FILTERING */
 function filterGames() {
     const query = search.value.toLowerCase();
     let visible = 0;
@@ -372,8 +530,13 @@ function filterGames() {
     empty.style.display = visible === 0 ? "block" : "none";
 }
 
-search.addEventListener("input", filterGames);
+/* SEARCH INPUT */
+search.addEventListener("input", () => {
+    showSearchResults();
+    filterGames();
+});
 
+/* CATEGORY BUTTONS */
 buttons.forEach(button => {
     button.addEventListener("click", () => {
         selectedCategory = button.dataset.category;
@@ -383,6 +546,20 @@ buttons.forEach(button => {
 
         filterGames();
     });
+});
+
+/* CLOSE SUGGESTIONS WHEN CLICKING OUTSIDE */
+document.addEventListener("click", event => {
+    if (!event.target.closest(".search-container")) {
+        searchResults.style.display = "none";
+    }
+});
+
+/* ESCAPE KEY CLOSES SUGGESTIONS */
+search.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+        searchResults.style.display = "none";
+    }
 });
 </script>
 
