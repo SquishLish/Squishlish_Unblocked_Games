@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Multiplayer Games | Squishlish's Unblocked Games</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #111126;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+header {
+    background: #1c1b35;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #34314e;
+}
+
+.logo {
+    color: #a78bfa;
+    font-size: 21px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+nav a:hover {
+    color: #a78bfa;
+}
+
+/* MAIN */
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 45px 20px;
+}
+
+h1 {
+    color: #c4b5fd;
+    margin-bottom: 10px;
+}
+
+.intro {
+    color: #aaa8bf;
+    margin-bottom: 30px;
+}
+
+/* GAME GRID */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 270px);
+    gap: 25px;
+}
+
+.game-card {
+    display: block;
+    width: 240px;
+    padding: 15px;
+    background: #201f38;
+    border-radius: 14px;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+}
+
+.game-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.game-card h2 {
+    margin-bottom: 5px;
+    color: white;
+}
+
+.game-card p {
+    color: #aaa8bf;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    background: #1c1b35;
+    padding: 25px;
+    color: #aaa8bf;
+    margin-top: 50px;
+    font-size: 13px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+
+    .game-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    .game-card {
+        width: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">🎮 SQUISHLISH</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="library.html">Games</a>
+    </nav>
+</header>
+
+<main>
+
+    <h1>🌐 Multiplayer Games</h1>
+    <p class="intro">Challenge players, compete and have fun together!</p>
+
+    <div class="game-grid">
+
+        <!-- SNAKE.IO -->
+        <a href="snake-io.html" class="game-card">
+
+            <img src="images/snake-io.png" alt="Snake.io game thumbnail">
+
+            <h2>Snake.io</h2>
+
+            <p>Grow your snake, collect glowing orbs and compete against other players to become the biggest snake!</p>
+
+        </a>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>© 2026 Squishlish's Unblocked Games</p>
+    <p>Made for fun. Play responsibly.</p>
+</footer>
+
+</body>
+</html>
