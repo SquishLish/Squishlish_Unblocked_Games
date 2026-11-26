@@ -176,6 +176,14 @@ main {
     border-color: #7954db;
 }
 
+/* MOST POPULAR CATEGORIES HEADING */
+.popular-heading {
+    color: #c4b5fd;
+    font-size: 22px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
 /* GAME CARDS */
 .games {
     display: grid;
@@ -340,6 +348,9 @@ footer {
 
 </div>
 
+<!-- MOST POPULAR CATEGORIES HEADING -->
+<h2 class="popular-heading">Most Popular Categories</h2>
+
 <!-- CATEGORY CARDS -->
 <div class="games" id="gameList">
 
@@ -413,6 +424,7 @@ footer {
 </footer>
 
 <script>
+
 const search = document.getElementById("search");
 const searchResults = document.getElementById("searchResults");
 const buttons = document.querySelectorAll("button.category-btn");
@@ -561,6 +573,7 @@ search.addEventListener("keydown", event => {
         searchResults.style.display = "none";
     }
 });
+
 </script>
 
 </body>
